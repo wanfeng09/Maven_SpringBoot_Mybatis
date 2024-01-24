@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book>
+    <info>
+        <name>姓名</name>
+        <age>18</age>
+        <price>22</price>
+    </info>
+    <info>
+        <name>测试</name>
+        <age>22</age>
+        <price>66.1</price>
+    </info>
+</book>

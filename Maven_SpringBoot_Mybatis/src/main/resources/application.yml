@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_test_01
+    username: root
+    password: 123456
+
+  #Mybatis配置
+  mybatis:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+      map-underscore-to-camel-case: true
+
+  #事务管理日志
+  logging:
+    level:
+      org.springframework.jdbc.support.JdbcTransactionManager: debug
+
+  #阿里云OSS
+  aliyun:
+    oss:
+      endpoint: https://oss-cn-guangzhou.aliyuncs.com
+      accessKeyId: LTAI5tHePq2norqGf1ty6vU1
+      accessKeySecret: ulsHqi0OJ9NBn1xsogAdlH8enkEsil
+      bucketName: hui-wanfeng
+
+
+  #测试@Conditional，进行条件判断
+  name: hui

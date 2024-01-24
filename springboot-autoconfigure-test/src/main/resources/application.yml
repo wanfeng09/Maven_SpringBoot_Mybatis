@@ -1,0 +1,6 @@
+aliyun:
+  oss:
+    access-key-id: LTAI5tHePq2norqGf1ty6vU1
+    access-key-secret: ulsHqi0OJ9NBn1xsogAdlH8enkEsil
+    endpoint: https://oss-cn-guangzhou.aliyuncs.com
+    bucket-name: hui-wanfeng
