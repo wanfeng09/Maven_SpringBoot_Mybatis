@@ -17,7 +17,7 @@ mvn idea:module
 
 自定义starter模块
 1. 创建Spring Initializr定义aliyun起步依赖模块【aliyun-oss-spring-boot-starter】
-   保留iml/pom.xml文件
+保留iml/pom.xml文件
 
 ```xml
 	 <!-- 删除以下多余内容 -->
@@ -46,12 +46,12 @@ mvn idea:module
 ```
 
 2. 创建Spring Initializr定义aliyun自动配置模块【aliyun-oss-spring-boot-autoconfigure】
-   保留iml/pom.xml/src文件，删除AliyunOssSpringBootAutoconfigureApplication.java启动类
+保留iml/pom.xml/src文件，删除AliyunOssSpringBootAutoconfigureApplication.java启动类
 
-   	1、在External Libraries下找到autoconfigure下的META-INF/spring/org...(复制imports名字)
-   	2、在aliyun-oss-spring-boot-autoconfigur的src/main/resources下创建目录META-INF/spring，然后新建文件（文件名是第一步复制的imports名字）
-   	3、在src/main/java创建包com.aliyun.oss，然后创建AliOSSUtils/AliOSSProperties/AliOSSAutoConfigure的class类
-   	4、将AliOSSAutoConfigure文件路径复制到第二步文件内容
+		1、在External Libraries下找到autoconfigure下的META-INF/spring/org...(复制imports名字)
+		2、在aliyun-oss-spring-boot-autoconfigur的src/main/resources下创建目录META-INF/spring，然后新建文件（文件名是第一步复制的imports名字）
+		3、在src/main/java创建包com.aliyun.oss，然后创建AliOSSUtils/AliOSSProperties/AliOSSAutoConfigure的class类
+		4、将AliOSSAutoConfigure文件路径复制到第二步文件内容
 
 
 ```xml
@@ -105,7 +105,7 @@ mvn idea:module
 ```
 
 3. 创建测试项目，引入aliyun-oss-spring-boot-starter依赖
-
+	
 
 ```xml
 <!-- 自定义starter-->
@@ -124,15 +124,15 @@ mvn idea:module
 Java DataBase Connectivity：使用Java语言操作关系型数据库的一套API
 
 >**本质**
-- sun公司官方定义的一套操作所有关系型数据库的规范，即接口
-- 各个数据库厂商去实现这套接口，提供数据库驱动jar包
-- 接口编程，真正执行的代码是驱动jar包中的实现类
+	 - sun公司官方定义的一套操作所有关系型数据库的规范，即接口
+	 - 各个数据库厂商去实现这套接口，提供数据库驱动jar包
+	 - 接口编程，真正执行的代码是驱动jar包中的实现类
 
 **实现步骤**
 
-1. 准备工作（创作springboot工程、数据库表user、实体类user）
-2. 引入mybatis的相关依赖，配置mybatis（数据库连接信息）
-3. 在注解上编写SQL语句
+ 1. 准备工作（创作springboot工程、数据库表user、实体类user）
+ 2. 引入mybatis的相关依赖，配置mybatis（数据库连接信息）
+ 3. 在注解上编写SQL语句
 
 ```application.properties
 #配置数据库的连接信息  四要素
@@ -166,9 +166,9 @@ spring-boot-starter-test：包含了单元测试所需要的常见依赖
 
 #### 启动项目
 
-1. 运行启动类：xxxApplication
-2. 定义一个测试java
-3. 查看控制器返回端口号：
+ 1. 运行启动类：xxxApplication
+ 2. 定义一个测试java
+ 3. 查看控制器返回端口号：
 
 > Tomcat initialized with port 8080 (http)
 > Tomcat started on port 8080 (http) with context path ''
@@ -198,9 +198,9 @@ public class HelloController {
 
 ### 数据库连接池
 
-- 数据库连接器是个容器，负责分配、管理数据库连接
-- 它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个
-- 释放空间时间超过最大空闲时间的连接，来避免因为没有释放连接而引起的数据库连接遗漏
+ - 数据库连接器是个容器，负责分配、管理数据库连接
+ - 它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个
+ - 释放空间时间超过最大空闲时间的连接，来避免因为没有释放连接而引起的数据库连接遗漏
 
 ==优点：资源复用，提升系统响应速度，避免数据库连接遗漏==
 
@@ -274,8 +274,8 @@ java -jar xxx.jar
 通过@Results及@Result进行手动结果映射。
 @Select("select * from tb_user where id=#{id}")
 @Results({
-@Result(column="username",property="别名"),
-@Result(column="create_time",property="createTime")
+		@Result(column="username",property="别名"),
+		@Result(column="create_time",property="createTime")
 })
 **方式3:开启驼峰命名** ==推荐==
 如果字段名与属性名符合驼峰命名规则，mybatis会自动通过驼峰命名规则映射
@@ -292,9 +292,9 @@ XML映射文件的namespace属性为Mapper接口全限定名一致。
 XML映射文件中sql语句的id与Mapper接口中的方法名一致，并保持返回类型一致。
 
 
-- 在resource右键new---Directory---（同包同名：注意创建路径用/）
-- 安装mybatisX插件
-- 使用mybatis的注解，主要是来完成一些简单的增删改查功能。如果需要实现复杂的sql功能，建议使用xml配置映射语句
+ - 在resource右键new---Directory---（同包同名：注意创建路径用/）
+ - 安装mybatisX插件
+ - 使用mybatis的注解，主要是来完成一些简单的增删改查功能。如果需要实现复杂的sql功能，建议使用xml配置映射语句
 
 >if:用于判断条件是否成立。使用test属性进行条件判断，如果条件为true，则拼接sql。
 where：只会在子元素有内容的情况下才插入where子句。而且会自动去除子句的开头的and或or
@@ -319,7 +319,7 @@ include：通过属性refid，指定包含的sql片段
 |目录拦截|/user/*|访问/user下的所有资源，都会被拦截|
 |拦截所有|/*|访问所有资源，都会被拦截|
 
-###  拦截器Interceptor
+ ###  拦截器Interceptor
 * 是一种动态拦截方法调用的机制，类似于过滤器。Spring框架中提供的，用来动态拦截控制器方法的执行。
 * 作用：拦截请求，在指定的方法调用前后，根据业务需要执行预设的代码
 
@@ -327,7 +327,7 @@ include：通过属性refid，指定包含的sql片段
 1、定义拦截器，实现HandlerInterceptor接口，并重写其所有方法。
 2、注册拦截器
 
-|拦截路径|含义|
+ |拦截路径|含义|
 |:-:|:-:|
 |/*|一级路径|
 |/**|任意级路径|
@@ -389,9 +389,9 @@ Aspect Oriented Programming：面向特定方法编程
 ### 分模块设计
 将项目按照功能拆分若干个子模块。方便项目的管理维护、扩展、模块间的相互调用、资源共享。【对项目先进行模块设计，在进行编码】
 
-1. 创建Maven模块，存放实体类
-2. 创建Maven模块，存放工具类
-3. 在项目中引用maven模块依赖
+ 1. 创建Maven模块，存放实体类
+ 2. 创建Maven模块，存放工具类
+ 3. 在项目中引用maven模块依赖
 
 #### 继承
 
@@ -405,7 +405,7 @@ Aspect Oriented Programming：面向特定方法编程
 <parent>...</parent>
 ```
 
-1. 创建Maven模块，该工程为父工程，设置打包方式pom（默认jar）
+ 1. 创建Maven模块，该工程为父工程，设置打包方式pom（默认jar）
 
 ```xml
 	<!-- 添加依赖 -->
@@ -423,7 +423,7 @@ Aspect Oriented Programming：面向特定方法编程
     <packaging>pom</packaging>
 ```
 
-2. 在子工程的pom.xml文件中，配置继承关系。
+ 2. 在子工程的pom.xml文件中，配置继承关系。
 
 
 ```xml
@@ -438,14 +438,14 @@ Aspect Oriented Programming：面向特定方法编程
     <groupId>com.hui</groupId>
 ```
 
-3. 在父工程中配置各个工程共有的依赖（子工程会自动继承父工程的依赖）
+ 3. 在父工程中配置各个工程共有的依赖（子工程会自动继承父工程的依赖）
 
-   	若父子工程都配置同一个依赖不同版本，以子工程为准
+		若父子工程都配置同一个依赖不同版本，以子工程为准
 
 **版本锁定**
 
 在Maven中，可以在父工程的pom文件中通过dependencyManagement来统一管理依赖版本
-
+		
 		子工程引入依赖时，无需指定<version>版本号，父工程统一管理。变更依赖版本，只需在父工程中统一变更
 		dependencies与dependencyManagement区别
 		1、dependencies是直接依赖，在父工程配置了依赖，子工程会直接继承下来
@@ -506,19 +506,16 @@ Maven中通过modules设置当前聚合工程所包含的子模块名称
 ```xml
  <!--聚合其他模块-->
     <modules>
-        <module>../../hui-pojo/hui-pojo</module>
-        <module>../../hui-utils/hui-utils</module>
-        <module>../../aliyun-oss-spring-boot-starter/aliyun-oss-spring-boot-starter</module>
-        <module>../../springboot-autoconfigure-test/springboot-autoconfigure-test</module>
+        <module>其他模块的pom.xml路径</module>
     </modules>
 ```
 
 
 **继承与聚合**
 
-- 作用：聚合用于款苏构建项目，继承用于简化依赖配置、统一依赖管理
-- 相同点：聚合与集成的pom.xml文件打包方式均为pom，可以将两种关系制作到同一个pom文件中【聚合与集成均属于设计型模块，并无实际的模块内容】
-- 不同点：聚合是聚合工程中的配置关系，聚合可以感知到参与聚合的模块有哪些；继承是子模块中的配置关系，父模块无法感知哪些子模块继承了自己
+ - 作用：聚合用于快速构建项目，继承用于简化依赖配置、统一依赖管理
+ - 相同点：聚合与集成的pom.xml文件打包方式均为pom，可以将两种关系制作到同一个pom文件中【聚合与集成均属于设计型模块，并无实际的模块内容】
+ - 不同点：聚合是聚合工程中的配置关系，聚合可以感知到参与聚合的模块有哪些；继承是子模块中的配置关系，父模块无法感知哪些子模块继承了自己
 
 ### Springboot配置文件
 优先级：application.yaml < application.yml【主流】< application.properties < java系统属性【-Dserver.port = 9000】< 命令行参数【--server.port=10000】
@@ -565,12 +562,12 @@ java -Dserver.port = 9000 -jar xxx.jar --server.port=10000
 ```xml
  	<mirror>
         <id>maven-public</id>
-        <url>https://192.168.xxx.xxx:8082/repository/public</url>
+        <url>https://192.168.xxx.xxx:8081/repository/public</url>
         <mirrorOf>*</mirrorOf>
     </mirror>
 ```
 
-3. 找到profile中，添加吐下配置，来指定快照版本的依赖，依然允许使用
+3. 找到profile中，添加如下配置，来指定快照版本的依赖，依然允许使用
 
 
 ```xml
@@ -582,7 +579,7 @@ java -Dserver.port = 9000 -jar xxx.jar --server.port=10000
         <repositories>
           <repository>
             <id>maven-public</id>
-            <url>https://192.168.xxx.xxx:8082/repository/public</url>
+            <url>https://192.168.xxx.xxx:8081/repository/public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -600,12 +597,12 @@ java -Dserver.port = 9000 -jar xxx.jar --server.port=10000
   		<!--releases版本的发布地址-->
         <repository>
             <id>maven-releases</id> <!--id需要与第一步（servers配置）的id保持一致-->
-            <url>https://192.168.xxx.xxx:8082/repository/maven-releases</url>
+            <url>https://192.168.xxx.xxx:8081/repository/maven-releases</url>
         </repository>
         <!--snapshots版本的发布地址-->
         <snapshotRepository>
             <id>maven-snapshots</id> 
-            <url>https://192.168.xxx.xxx:8082/repository/maven-snapshots</url>
+            <url>https://192.168.xxx.xxx:8081/repository/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 ```
@@ -615,9 +612,9 @@ java -Dserver.port = 9000 -jar xxx.jar --server.port=10000
 #### 本地私服配置
 [文档](https://help.sonatype.com/en/sonatype-nexus-repository.html)
 1. 解压：apache-maven-nexus.zip [下载地址](https://www.sonatype.com/products/sonatype-nexus-oss-download)
-2. 进入目录：apache-maven-nexus/xxx/bin 打开cmd
+2. 进入目录：apache-maven-nexus/xxx/bin 打开cmd 
 3. 运行安装服务---> (nexus.exe /install) 和 启动服务--->(nexus.exe /start)命令
-   ![cmd](https://img-blog.csdnimg.cn/direct/ed43488731c240c4b2683e9e853cc060.png)
+![cmd](https://img-blog.csdnimg.cn/direct/ed43488731c240c4b2683e9e853cc060.png)
 
 ```bash
 nexus.exe /install 安装服务
@@ -628,13 +625,14 @@ nexus.exe /uninstall 卸载服务
 ```
 
 4. 访问服务：localhost:8081
+5. 初始密码：D:\java\nexus\windows\sonatype-work\nexus3下的admin.pawweord
 
 ### 获取bean
-默认情况下，spring项目启动时，会吧bean都创建好放在IOC容器中【还会收到作用域及延迟初始化影响，这里主要针对于默认的单例非延迟加载的bean而言】，如果想要主动获取这些bean，可以通过如下方式：
+默认情况下，spring项目启动时，会把bean都创建好放在IOC容器中【还会收到作用域及延迟初始化影响，这里主要针对于默认的单例非延迟加载的bean而言】，如果想要主动获取这些bean，可以通过如下方式：
 
-- 根据name获取bean：object getBean(String name)
-- 根据类型获取bean：<T> T getBean(Class<T> requiredType)
-- 根据name获取bean（带类型转换）：<T> T getBean(String name,Class<T> requiredType)
+ - 根据name获取bean：object getBean(String name)
+ - 根据类型获取bean：<T> T getBean(Class<T> requiredType)
+ - 根据name获取bean（带类型转换）：<T> T getBean(String name,Class<T> requiredType)
 
 |作用域|说明
 |:-|:-|
@@ -650,11 +648,11 @@ Hyper Text Transfer Protocol，超文本传输协议，规定了浏览器和服�
 
 #### 特点
 
-- 基于TCP协议：面向连接、安全
-- 基于请求-响应模型的，一次请求对应一次响应
-- HTTP协议是无状态的协议，对于事务处理没有记忆能力。每次请求-响应都是独立的【多次请求间不能共享数据，速度快】
-- GET请求：请求参数在请求行（请求方式、资源路径、协议）中，没有请求体，限制请求大小
-- POST请求：请求参数在请求体中，POST请求没有大小限制
+ - 基于TCP协议：面向连接、安全
+ - 基于请求-响应模型的，一次请求对应一次响应
+ - HTTP协议是无状态的协议，对于事务处理没有记忆能力。每次请求-响应都是独立的【多次请求间不能共享数据，速度快】
+ - GET请求：请求参数在请求行（请求方式、资源路径、协议）中，没有请求体，限制请求大小
+ - POST请求：请求参数在请求体中，POST请求没有大小限制
 
 
 #### HTTP-请求数据格式【请求头】
@@ -680,15 +678,15 @@ Hyper Text Transfer Protocol，超文本传输协议，规定了浏览器和服�
 
 ## Web服务器
 
-1. web服务器是一个软件程序，对HTTP协议的操作进行封装，简化web程序开发，主要功能是提供网上信息浏览服务。
-2. 部署web项目，对外提供网上信息浏览服务
+ 1. web服务器是一个软件程序，对HTTP协议的操作进行封装，简化web程序开发，主要功能是提供网上信息浏览服务。
+ 2. 部署web项目，对外提供网上信息浏览服务
 
 ## Tomcat
 [官网](https://tomcat.apache.org/)
 
-1. 一个轻量级的web服务器，支持servlet、jsp等少量JavaEE规范。
-2. 也称为web容器、servlet容器。
-3. servlet程序需要依赖于Tomcat。
+ 1. 一个轻量级的web服务器，支持servlet、jsp等少量JavaEE规范。
+ 2. 也称为web容器、servlet容器。
+ 3. servlet程序需要依赖于Tomcat。
 
 基本使用
 

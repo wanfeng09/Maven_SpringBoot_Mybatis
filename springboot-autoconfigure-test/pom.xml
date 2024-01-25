@@ -6,7 +6,7 @@
         <groupId>com.hui</groupId>
         <artifactId>hui-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../hui-parent/hui-parent/pom.xml</relativePath>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>com.example</groupId>
